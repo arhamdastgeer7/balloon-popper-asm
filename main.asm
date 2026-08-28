@@ -2,7 +2,7 @@ org 100h
 
 jmp start
 
-; ============ DATA SECTION ============
+;  DATA SECTION 
 game_state db 0
 score dw 0
 timer dw 0
@@ -31,13 +31,13 @@ subtitle1 db '        -= TYPING MASTER CHALLENGE =-', 0
 start_prompt db '       >>> PRESS SPACE TO START <<<       $'
 
 ; Level selection screen
-level_title db '=== SELECT YOUR LEVEL ===', 0
+level_title db 'SELECT YOUR LEVEL', 0
 level1_txt db '[1] BEGINNER  - 5 Balloons, Slow Speed', 0
 level2_txt db '[2] MEDIUM    - 6 Balloons, Medium Speed', 0
 level3_txt db '[3] ADVANCED  - 7 Balloons, Fast Speed!', 0
 select_prompt db 'Press 1, 2, or 3 to select level', 0
 
-game_title db '=== BALLOON POPPER ===', 0
+game_title db 'BALLOON POPPER', 0
 score_txt db 'SCORE:', 0
 time_txt db 'TIME:', 0
 level_txt db 'LVL:', 0
@@ -71,7 +71,7 @@ beginner_msg db 'BEGINNER MODE', 0
 medium_msg db 'MEDIUM MODE', 0
 advanced_msg db 'ADVANCED MODE', 0
 
-; ============ MAIN PROGRAM ============
+;     MAIN PROGRAM 
 start:
     call init_random
     
@@ -95,7 +95,7 @@ show_end:
     call wait_for_key_end
     jmp main_loop
 
-; ============ LEVEL SELECTION ============
+;  LEVEL SELECTION 
 draw_level_select:
     call clear_screen_blue
     
@@ -195,7 +195,7 @@ level_3_selected:
     mov byte [level], 3
     ret
 
-; ============ INITIALIZATION ============
+;  INITIALIZATION 
 init_random:
     mov ah, 0
     int 1Ah
@@ -318,7 +318,7 @@ get_random:
     pop dx
     ret
 
-; ============ GAME SCREEN ============
+;   GAME SCREEN 
 draw_game_screen:
     call clear_screen_blue
     
@@ -492,7 +492,7 @@ dfb_active:
     pop dx
     ret
 
-; ============ GAME LOGIC ============
+;    GAME LOGIC 
 game_loop:
 game_loop_start:
     call draw_game_screen
@@ -817,7 +817,7 @@ check_b7:
 check_done:
     ret
 
-; ============ END SCREEN ============
+;     END SCREEN 
 draw_end_screen:
     call clear_screen_blue
     
@@ -919,7 +919,7 @@ end_show_msg:
     call print_string_color
     ret
 
-; ============ UTILITY FUNCTIONS ============
+;    UTILITY FUNCTIONS 
 clear_screen_blue:
     mov ax, 0600h
     mov bh, 07h
