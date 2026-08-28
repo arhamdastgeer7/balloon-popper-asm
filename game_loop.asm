@@ -59,7 +59,7 @@ game_finished:
     mov [final_score], ax
     ret
 
-; ========== SUBROUTINES ==========
+;SUBROUTINES
 
 display_header:
     ; Print header
@@ -444,7 +444,7 @@ number_to_string:
     mov byte [di], '$' ; Null terminator
     ret
 
-; ========== DATA SECTION ==========
+;         DATA SECTION 
 header      db 'BURSTING BALLOONS$'
 score_label db 'SCORE: $'
 time_label  db 'TIME: $'
